@@ -143,11 +143,21 @@ namespace Wpf_Calcul.ViewModels
         public ICommand Number6Command { get; }
         private void OnNumber6CommandExecute(object buttonValue)
         {
-             CalcText += buttonValue.ToString();
+            CalcText += buttonValue.ToString();
         }
         private bool CanNumber6ComandCanExecuted(object p)
         {
-            if (CalcText.Substring(CalcText.Length - 1) == "+" || CalcText.Substring(CalcText.Length - 1) == "-" || CalcText.Substring(CalcText.Length - 1) == "*" || CalcText.Substring(CalcText.Length - 1) == "/" || CalcText.Substring(CalcText.Length - 1) == ".")
+            string str = "";
+            for (int i=0; i<CalcText.Length; i++)
+                if (!char.IsDigit(CalcText[i]))
+                {
+                    str += CalcText[i];
+                    
+                }
+            if (str.Length!=0 && str.Substring(str.Length - 1) == ".")
+                return false;
+
+            if ( CalcText.Substring(CalcText.Length - 1) == "+" || CalcText.Substring(CalcText.Length - 1) == "-" || CalcText.Substring(CalcText.Length - 1) == "*" || CalcText.Substring(CalcText.Length - 1) == "/" || CalcText.Substring(CalcText.Length - 1) == ".")
                 return false;
             else
                 return true;
