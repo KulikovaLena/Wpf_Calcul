@@ -38,7 +38,7 @@ namespace Wpf_Calcul.ViewModels
             try
             {
                 CalcText = Insertion.Calc(CalcText).ToString().Replace(',', '.');
-                if (CalcText == "∞")
+                if (CalcText == "∞" || CalcText == "-∞")
                     CalcText = "error";
             }
             catch

@@ -24,5 +24,7 @@ namespace Wpf_Calcul
         {
             InitializeComponent();
         }
+
+       
     }
 }
