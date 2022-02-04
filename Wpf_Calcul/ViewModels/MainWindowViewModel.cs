@@ -20,8 +20,6 @@ namespace Wpf_Calcul.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
         }
 
-        
-
         private string calcText="0";
         public string CalcText
         {
@@ -71,7 +69,10 @@ namespace Wpf_Calcul.ViewModels
         }
         private bool CanNumber2ComandCanExecuted(object p)
         {
-            return true;
+            if (CalcText == "error")
+                return false;
+            else
+                return true;
         }
         #endregion
 
@@ -83,7 +84,7 @@ namespace Wpf_Calcul.ViewModels
         }
         private bool CanNumber3ComandCanExecuted(object p)
         {
-            if (CalcText.Substring(CalcText.Length - 1) == "+" || CalcText.Substring(CalcText.Length - 1) == "-" || CalcText.Substring(CalcText.Length - 1) == "*" || CalcText.Substring(CalcText.Length - 1) == "/" || CalcText.Substring(CalcText.Length - 1) == ".")
+            if (CalcText == "error" || CalcText.Substring(CalcText.Length - 1) == "+" || CalcText.Substring(CalcText.Length - 1) == "-" || CalcText.Substring(CalcText.Length - 1) == "*" || CalcText.Substring(CalcText.Length - 1) == "/" || CalcText.Substring(CalcText.Length - 1) == ".")
                 return false;
             else
                 return true;
@@ -106,7 +107,10 @@ namespace Wpf_Calcul.ViewModels
         }
         private bool CanNumber4ComandCanExecuted(object p)
         {
-            return true;
+            if (CalcText == "error")
+                return false;
+            else
+                return true;
         }
         #endregion
 
@@ -135,7 +139,10 @@ namespace Wpf_Calcul.ViewModels
         }
         private bool CanNumber5ComandCanExecuted(object p)
         {
-            return true;
+            if (CalcText == "error")
+                return false;
+            else
+                return true;
         }
         #endregion
 
@@ -157,7 +164,7 @@ namespace Wpf_Calcul.ViewModels
             if (str.Length!=0 && str.Substring(str.Length - 1) == ".")
                 return false;
 
-            if ( CalcText.Substring(CalcText.Length - 1) == "+" || CalcText.Substring(CalcText.Length - 1) == "-" || CalcText.Substring(CalcText.Length - 1) == "*" || CalcText.Substring(CalcText.Length - 1) == "/" || CalcText.Substring(CalcText.Length - 1) == ".")
+            if (CalcText == "error" || CalcText.Substring(CalcText.Length - 1) == "+" || CalcText.Substring(CalcText.Length - 1) == "-" || CalcText.Substring(CalcText.Length - 1) == "*" || CalcText.Substring(CalcText.Length - 1) == "/" || CalcText.Substring(CalcText.Length - 1) == ".")
                 return false;
             else
                 return true;
@@ -173,7 +180,7 @@ namespace Wpf_Calcul.ViewModels
         }
         private bool CanNumber7ComandCanExecuted(object p)
         {
-            if (CalcText=="0")
+            if (CalcText=="0" || CalcText == "error")
                 return false;
             else
                 return true;
@@ -189,7 +196,10 @@ namespace Wpf_Calcul.ViewModels
         }
         private bool CanNumber8ComandCanExecuted(object p)
         {
-            return true;
+            if (CalcText == "error")
+                return false;
+            else
+                return true;
         }
         #endregion
 
@@ -204,7 +214,10 @@ namespace Wpf_Calcul.ViewModels
         }
         private bool CanNumber9ComandCanExecuted(object p)
         {
-            return true;
+            if (CalcText == "error")
+                return false;
+            else
+                return true;
         }
         #endregion
 
@@ -217,7 +230,10 @@ namespace Wpf_Calcul.ViewModels
         }
         private bool CanNumber10ComandCanExecuted(object p)
         {
-            return true;
+            if (CalcText == "error")
+                return false;
+            else
+                return true;
         }
         #endregion
 
