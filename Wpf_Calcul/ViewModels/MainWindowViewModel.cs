@@ -39,7 +39,9 @@ namespace Wpf_Calcul.ViewModels
         {
             try
             {
-                CalcText = Insertion.Calc(CalcText).ToString();
+                CalcText = Insertion.Calc(CalcText).ToString().Replace(',', '.');
+                if (CalcText == "∞")
+                    CalcText = "error";
             }
             catch
             {
@@ -157,7 +159,7 @@ namespace Wpf_Calcul.ViewModels
         private void OnNumber7CommandExecute(object buttonValue)
         {
             double x = Insertion.Calc(CalcText);
-            CalcText = Convert.ToString(1/x);
+            CalcText = Convert.ToString(1/x).Replace(',', '.');
         }
         private bool CanNumber7ComandCanExecuted(object p)
         {
@@ -173,7 +175,7 @@ namespace Wpf_Calcul.ViewModels
         private void OnNumber8CommandExecute(object buttonValue)
         {
             double x = Insertion.Calc(CalcText);
-            CalcText = Convert.ToString(x*x);
+            CalcText = Convert.ToString(x*x).Replace(',', '.');
         }
         private bool CanNumber8ComandCanExecuted(object p)
         {
@@ -188,7 +190,7 @@ namespace Wpf_Calcul.ViewModels
             if (Insertion.Calc(CalcText) < 0)
                 CalcText = "error";
             else
-                CalcText = Insertion.Square(Insertion.Calc(CalcText));
+                CalcText = Insertion.Square(Insertion.Calc(CalcText)).Replace(',', '.');
         }
         private bool CanNumber9ComandCanExecuted(object p)
         {
@@ -201,7 +203,7 @@ namespace Wpf_Calcul.ViewModels
         private void OnNumber10CommandExecute(object buttonValue)
         {
             double x = Insertion.Calc(CalcText);
-            CalcText = Convert.ToString(x / 100);
+            CalcText = Convert.ToString(x / 100).Replace(',', '.');
         }
         private bool CanNumber10ComandCanExecuted(object p)
         {
